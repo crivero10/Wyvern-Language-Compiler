@@ -1,5 +1,5 @@
 /*=======================================================================
-  Wyvern compiler: Version 0.3
+  Wyvern compiler: Version 0.4
   Copyright (C) 2019 Carlos Rivero A01371368, ITESM CEM
 ========================================================================*/
 
@@ -11,7 +11,7 @@ namespace Wyvern {
 
     public class Driver {
 
-        const string VERSION = "0.2";
+        const string VERSION = "0.4";
 
         //-----------------------------------------------------------
         static readonly string[] ReleaseIncludes = {
@@ -55,11 +55,35 @@ namespace Wyvern {
                 var input = File.ReadAllText(inputPath);
                 var parser = new Parser(new Scanner(input).Start().GetEnumerator());
                 var program = parser.Program();
-                Console.Write(program.ToStringTree());
+                Console.WriteLine("Syntax OK.");
+
+
+                var semantic = new SemanticAnalyzer();
+                semantic.Visit((dynamic) program);
+
+                Console.WriteLine("Semantics OK.");
+                Console.WriteLine();
+                Console.WriteLine("Global Symbol Table");
+                Console.WriteLine("============");
+                foreach (var entry in semantic.globalScopeSymbolTable) {
+                    Console.WriteLine(entry);                        
+                }
+                Console.WriteLine("Global Function Table");
+                Console.WriteLine("============");
+                foreach (var entry in semantic.globalScopeFunctionTable) {
+                    Console.WriteLine(entry);                        
+                }
+                Console.WriteLine("Local Tables");
+                Console.WriteLine("============");
+                foreach (var entry in semantic.localSymbolTables) {
+                    Console.WriteLine(entry);                        
+                }
 
             } catch (Exception e) {
 
-                if (e is FileNotFoundException || e is SyntaxError) {
+                if (e is FileNotFoundException 
+                    || e is SyntaxError 
+                    || e is SemanticError) {
                     Console.Error.WriteLine(e.Message);
                     Environment.Exit(1);
                 }

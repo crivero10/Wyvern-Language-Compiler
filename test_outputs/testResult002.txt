@@ -1,4 +1,4 @@
-Wyvern compiler, version 0.2
+Wyvern compiler, version 0.4
 Copyright © 2019 by Carlos Rivero, ITESM CEM.
 This program has absolutely no warranty.
 
@@ -7,146 +7,41 @@ Included in this release:
    * Syntactic analysis
    * AST construction
 
-ProgramNode 
-  FunDefNode {IDENTIFIER, "reverse", @(7, 1)}
-    IdListNode 
-      IdentifierNode {IDENTIFIER, "array", @(7, 9)}
-    VarDefListNode 
-      VarDefNode {VAR, "var", @(8, 5)}
-        IdListNode 
-          IdentifierNode {IDENTIFIER, "start", @(8, 9)}
-          IdentifierNode {IDENTIFIER, "finish", @(8, 16)}
-          IdentifierNode {IDENTIFIER, "temp", @(8, 24)}
-    StmtListNode 
-      AssignmentNode {IDENTIFIER, "start", @(9, 5)}
-        IntLiteralNode {INT_LITERAL, "0", @(9, 13)}
-      AssignmentNode {IDENTIFIER, "finish", @(10, 5)}
-        ExprAddNode {NEG, "-", @(10, 26)}
-          FunCallNode {IDENTIFIER, "size", @(10, 14)}
-            ExprListNode 
-              IdentifierNode {IDENTIFIER, "array", @(10, 19)}
-          IntLiteralNode {INT_LITERAL, "1", @(10, 28)}
-      WhileNode {WHILE, "while", @(11, 5)}
-        StmtListNode 
-          AssignmentNode {IDENTIFIER, "temp", @(12, 9)}
-            FunCallNode {IDENTIFIER, "get", @(12, 16)}
-              ExprListNode 
-                IdentifierNode {IDENTIFIER, "array", @(12, 20)}
-                IdentifierNode {IDENTIFIER, "start", @(12, 27)}
-          FunCallNode {IDENTIFIER, "set", @(13, 9)}
-            ExprListNode 
-              IdentifierNode {IDENTIFIER, "array", @(13, 13)}
-              IdentifierNode {IDENTIFIER, "start", @(13, 20)}
-              FunCallNode {IDENTIFIER, "get", @(13, 27)}
-                ExprListNode 
-                  IdentifierNode {IDENTIFIER, "array", @(13, 31)}
-                  IdentifierNode {IDENTIFIER, "finish", @(13, 38)}
-          FunCallNode {IDENTIFIER, "set", @(14, 9)}
-            ExprListNode 
-              IdentifierNode {IDENTIFIER, "array", @(14, 13)}
-              IdentifierNode {IDENTIFIER, "finish", @(14, 20)}
-              IdentifierNode {IDENTIFIER, "temp", @(14, 28)}
-          IncrementNode {IDENTIFIER, "start", @(15, 9)}
-          DecrementNode {IDENTIFIER, "finish", @(16, 9)}
-  FunDefNode {IDENTIFIER, "binary", @(21, 1)}
-    IdListNode 
-      IdentifierNode {IDENTIFIER, "num", @(21, 8)}
-    VarDefListNode 
-      VarDefNode {VAR, "var", @(22, 5)}
-        IdListNode 
-          IdentifierNode {IDENTIFIER, "result", @(22, 9)}
-          IdentifierNode {IDENTIFIER, "remainder", @(22, 17)}
-    StmtListNode 
-      IfNode 
-        ExprRelNode {LESS_EQUAL, "<=", @(23, 13)}
-          IdentifierNode {IDENTIFIER, "num", @(23, 9)}
-          IntLiteralNode {INT_LITERAL, "0", @(23, 16)}
-        StmtListNode 
-          ReturnNode {RETURN, "return", @(24, 9)}
-            StrNode {STRING_LITERAL, ""0"", @(24, 16)}
-        ElseIfListNode 
-        ElseNode 
-      AssignmentNode {IDENTIFIER, "result", @(26, 5)}
-        StrNode {STRING_LITERAL, """", @(26, 14)}
-      WhileNode {WHILE, "while", @(27, 5)}
-        StmtListNode 
-          AssignmentNode {IDENTIFIER, "remainder", @(28, 9)}
-            ExprMulNode {MOD, "%", @(28, 25)}
-              IdentifierNode {IDENTIFIER, "num", @(28, 21)}
-              IntLiteralNode {INT_LITERAL, "2", @(28, 27)}
-          FunCallNode {IDENTIFIER, "add", @(29, 9)}
-            ExprListNode 
-              IdentifierNode {IDENTIFIER, "result", @(29, 13)}
-              ExprAddNode {PLUS, "+", @(29, 31)}
-                IdentifierNode {IDENTIFIER, "remainder", @(29, 21)}
-                CharNode {CHAR_LITERAL, "'0'", @(29, 33)}
-          AssignmentNode {IDENTIFIER, "num", @(30, 9)}
-            ExprMulNode {DIV, "/", @(30, 19)}
-              IdentifierNode {IDENTIFIER, "num", @(30, 15)}
-              IntLiteralNode {INT_LITERAL, "2", @(30, 21)}
-      FunCallNode {IDENTIFIER, "reverse", @(32, 5)}
-        ExprListNode 
-          IdentifierNode {IDENTIFIER, "result", @(32, 13)}
-      ReturnNode {RETURN, "return", @(33, 5)}
-        IdentifierNode {IDENTIFIER, "result", @(33, 12)}
-  FunDefNode {IDENTIFIER, "main", @(36, 1)}
-    IdListNode 
-    VarDefListNode 
-      VarDefNode {VAR, "var", @(37, 5)}
-        IdListNode 
-          IdentifierNode {IDENTIFIER, "option", @(37, 9)}
-          IdentifierNode {IDENTIFIER, "num", @(37, 17)}
-    StmtListNode 
-      WhileNode {WHILE, "while", @(38, 5)}
-        StmtListNode 
-          FunCallNode {IDENTIFIER, "prints", @(39, 9)}
-            ExprListNode 
-              StrNode {STRING_LITERAL, ""Input a number: "", @(39, 16)}
-          AssignmentNode {IDENTIFIER, "num", @(40, 9)}
-            FunCallNode {IDENTIFIER, "readi", @(40, 15)}
-              ExprListNode 
-          FunCallNode {IDENTIFIER, "prints", @(41, 9)}
-            ExprListNode 
-              StrNode {STRING_LITERAL, ""Conversion to binary of that number: "", @(41, 16)}
-          FunCallNode {IDENTIFIER, "prints", @(42, 9)}
-            ExprListNode 
-              FunCallNode {IDENTIFIER, "binary", @(42, 16)}
-                ExprListNode 
-                  IdentifierNode {IDENTIFIER, "num", @(42, 23)}
-          FunCallNode {IDENTIFIER, "println", @(43, 9)}
-            ExprListNode 
-          FunCallNode {IDENTIFIER, "prints", @(44, 9)}
-            ExprListNode 
-              StrNode {STRING_LITERAL, ""Convert another number? "", @(44, 16)}
-          AssignmentNode {IDENTIFIER, "option", @(45, 9)}
-            FunCallNode {IDENTIFIER, "reads", @(45, 18)}
-              ExprListNode 
-          IfNode 
-            ExprCompNode {EQUAL, "==", @(46, 26)}
-              FunCallNode {IDENTIFIER, "size", @(46, 13)}
-                ExprListNode 
-                  IdentifierNode {IDENTIFIER, "option", @(46, 18)}
-              IntLiteralNode {INT_LITERAL, "0", @(46, 29)}
-            StmtListNode 
-              AssignmentNode {IDENTIFIER, "option", @(47, 13)}
-                CharNode {CHAR_LITERAL, "'N'", @(47, 22)}
-            ElseIfListNode 
-            ElseNode 
-              StmtListNode 
-                AssignmentNode {IDENTIFIER, "option", @(49, 13)}
-                  FunCallNode {IDENTIFIER, "get", @(49, 22)}
-                    ExprListNode 
-                      IdentifierNode {IDENTIFIER, "option", @(49, 26)}
-                      IntLiteralNode {INT_LITERAL, "0", @(49, 34)}
-          IfNode 
-            ExprAndNode {AND, "&&", @(51, 27)}
-              ExprCompNode {NOTEQUAL, "!=", @(51, 20)}
-                IdentifierNode {IDENTIFIER, "option", @(51, 13)}
-                CharNode {CHAR_LITERAL, "'Y'", @(51, 23)}
-              ExprCompNode {NOTEQUAL, "!=", @(51, 37)}
-                IdentifierNode {IDENTIFIER, "option", @(51, 30)}
-                CharNode {CHAR_LITERAL, "'y'", @(51, 40)}
-            StmtListNode 
-              StmtNode {BREAK, "break", @(52, 13)}
-            ElseIfListNode 
-            ElseNode 
+Syntax OK.
+Semantics OK.
+
+Global Symbol Table
+============
+Global Function Table
+============
+[add, 2]
+[binary, 1]
+[get, 2]
+[main, 0]
+[new, 1]
+[printc, 1]
+[printi, 1]
+[println, 0]
+[prints, 1]
+[readi, 0]
+[reads, 0]
+[reverse, 1]
+[set, 3]
+[size, 1]
+Local Tables
+============
+[binary, Symbol Table:
+- num 
+- result 
+- remainder 
+]
+[main, Symbol Table:
+- option 
+- num 
+]
+[reverse, Symbol Table:
+- array 
+- start 
+- finish 
+- temp 
+]

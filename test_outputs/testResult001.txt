@@ -1,4 +1,4 @@
-Wyvern compiler, version 0.2
+Wyvern compiler, version 0.4
 Copyright © 2019 by Carlos Rivero, ITESM CEM.
 This program has absolutely no warranty.
 
@@ -7,24 +7,27 @@ Included in this release:
    * Syntactic analysis
    * AST construction
 
-ProgramNode 
-  VarDefNode {VAR, "var", @(7, 1)}
-    IdListNode 
-      IdentifierNode {IDENTIFIER, "answer", @(7, 5)}
-  FunDefNode {IDENTIFIER, "main", @(9, 1)}
-    IdListNode 
-    VarDefListNode 
-    StmtListNode 
-      AssignmentNode {IDENTIFIER, "answer", @(10, 5)}
-        IntLiteralNode {INT_LITERAL, "42", @(10, 14)}
-      FunCallNode {IDENTIFIER, "prints", @(11, 5)}
-        ExprListNode 
-          StrNode {STRING_LITERAL, ""The answer to the ultimate question of life, "", @(11, 12)}
-      FunCallNode {IDENTIFIER, "prints", @(12, 5)}
-        ExprListNode 
-          StrNode {STRING_LITERAL, ""the universe, and everything: "", @(12, 12)}
-      FunCallNode {IDENTIFIER, "printi", @(13, 5)}
-        ExprListNode 
-          IdentifierNode {IDENTIFIER, "answer", @(13, 12)}
-      FunCallNode {IDENTIFIER, "println", @(14, 5)}
-        ExprListNode 
+Syntax OK.
+Semantics OK.
+
+Global Symbol Table
+============
+answer
+Global Function Table
+============
+[add, 2]
+[get, 2]
+[main, 0]
+[new, 1]
+[printc, 1]
+[printi, 1]
+[println, 0]
+[prints, 1]
+[readi, 0]
+[reads, 0]
+[set, 3]
+[size, 1]
+Local Tables
+============
+[main, Symbol Table:
+]

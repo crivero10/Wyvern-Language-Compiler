@@ -1,5 +1,5 @@
 /*=======================================================================
-  Wyvern compiler: Version 0.3
+  Wyvern compiler: Version 0.4
   Copyright (C) 2019 Carlos Rivero A01371368, ITESM CEM
 ========================================================================*/
 
@@ -63,6 +63,10 @@ namespace Wyvern {
 
     }
     class ProgramNode: Node {
+
+    }
+
+    class DefNode: Node {
 
     }
     class CharNode: Node {
@@ -152,6 +156,10 @@ namespace Wyvern {
     }
 
     class FalseNode: Node {
+
+    }
+
+    class ExprPrimaryNode : Node{
 
     }
 

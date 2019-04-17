@@ -1,4 +1,4 @@
-Wyvern compiler, version 0.2
+Wyvern compiler, version 0.4
 Copyright © 2019 by Carlos Rivero, ITESM CEM.
 This program has absolutely no warranty.
 
@@ -7,236 +7,49 @@ Included in this release:
    * Syntactic analysis
    * AST construction
 
-ProgramNode 
-  FunDefNode {IDENTIFIER, "is_leap_year", @(7, 1)}
-    IdListNode 
-      IdentifierNode {IDENTIFIER, "y", @(7, 14)}
-    VarDefListNode 
-    StmtListNode 
-      IfNode 
-        ExprCompNode {EQUAL, "==", @(8, 15)}
-          ExprMulNode {MOD, "%", @(8, 11)}
-            IdentifierNode {IDENTIFIER, "y", @(8, 9)}
-            IntLiteralNode {INT_LITERAL, "4", @(8, 13)}
-          IntLiteralNode {INT_LITERAL, "0", @(8, 18)}
-        StmtListNode 
-          IfNode 
-            ExprCompNode {EQUAL, "==", @(9, 21)}
-              ExprMulNode {MOD, "%", @(9, 15)}
-                IdentifierNode {IDENTIFIER, "y", @(9, 13)}
-                IntLiteralNode {INT_LITERAL, "100", @(9, 17)}
-              IntLiteralNode {INT_LITERAL, "0", @(9, 24)}
-            StmtListNode 
-              IfNode 
-                ExprCompNode {EQUAL, "==", @(10, 25)}
-                  ExprMulNode {MOD, "%", @(10, 19)}
-                    IdentifierNode {IDENTIFIER, "y", @(10, 17)}
-                    IntLiteralNode {INT_LITERAL, "400", @(10, 21)}
-                  IntLiteralNode {INT_LITERAL, "0", @(10, 28)}
-                StmtListNode 
-                  ReturnNode {RETURN, "return", @(11, 17)}
-                    TrueNode {TRUE, "true", @(11, 24)}
-                ElseIfListNode 
-                ElseNode 
-                  StmtListNode 
-                    ReturnNode {RETURN, "return", @(13, 17)}
-                      IntLiteralNode {FALSE, "false", @(13, 24)}
-            ElseIfListNode 
-            ElseNode 
-              StmtListNode 
-                ReturnNode {RETURN, "return", @(16, 13)}
-                  TrueNode {TRUE, "true", @(16, 20)}
-        ElseIfListNode 
-        ElseNode 
-          StmtListNode 
-            ReturnNode {RETURN, "return", @(19, 9)}
-              IntLiteralNode {FALSE, "false", @(19, 16)}
-  FunDefNode {IDENTIFIER, "number_of_days_in_month", @(24, 1)}
-    IdListNode 
-      IdentifierNode {IDENTIFIER, "y", @(24, 25)}
-      IdentifierNode {IDENTIFIER, "m", @(24, 28)}
-    VarDefListNode 
-      VarDefNode {VAR, "var", @(25, 5)}
-        IdListNode 
-          IdentifierNode {IDENTIFIER, "result", @(25, 9)}
-    StmtListNode 
-      IfNode 
-        ExprCompNode {EQUAL, "==", @(26, 11)}
-          IdentifierNode {IDENTIFIER, "m", @(26, 9)}
-          IntLiteralNode {INT_LITERAL, "2", @(26, 14)}
-        StmtListNode 
-          IfNode 
-            FunCallNode {IDENTIFIER, "is_leap_year", @(27, 13)}
-              ExprListNode 
-                IdentifierNode {IDENTIFIER, "y", @(27, 26)}
-            StmtListNode 
-              AssignmentNode {IDENTIFIER, "result", @(28, 13)}
-                IntLiteralNode {INT_LITERAL, "29", @(28, 22)}
-            ElseIfListNode 
-            ElseNode 
-              StmtListNode 
-                AssignmentNode {IDENTIFIER, "result", @(30, 13)}
-                  IntLiteralNode {INT_LITERAL, "28", @(30, 22)}
-        ElseIfListNode 
-          ElseIfNode 
-            ExprOrNode {OR, "||", @(32, 42)}
-              ExprOrNode {OR, "||", @(32, 32)}
-                ExprOrNode {OR, "||", @(32, 22)}
-                  ExprCompNode {EQUAL, "==", @(32, 17)}
-                    IdentifierNode {IDENTIFIER, "m", @(32, 15)}
-                    IntLiteralNode {INT_LITERAL, "4", @(32, 20)}
-                  ExprCompNode {EQUAL, "==", @(32, 27)}
-                    IdentifierNode {IDENTIFIER, "m", @(32, 25)}
-                    IntLiteralNode {INT_LITERAL, "6", @(32, 30)}
-                ExprCompNode {EQUAL, "==", @(32, 37)}
-                  IdentifierNode {IDENTIFIER, "m", @(32, 35)}
-                  IntLiteralNode {INT_LITERAL, "9", @(32, 40)}
-              ExprCompNode {EQUAL, "==", @(32, 47)}
-                IdentifierNode {IDENTIFIER, "m", @(32, 45)}
-                IntLiteralNode {INT_LITERAL, "11", @(32, 50)}
-            StmtListNode 
-              AssignmentNode {IDENTIFIER, "result", @(33, 9)}
-                IntLiteralNode {INT_LITERAL, "30", @(33, 18)}
-        ElseNode 
-          StmtListNode 
-            AssignmentNode {IDENTIFIER, "result", @(35, 9)}
-              IntLiteralNode {INT_LITERAL, "31", @(35, 18)}
-      ReturnNode {RETURN, "return", @(37, 5)}
-        IdentifierNode {IDENTIFIER, "result", @(37, 12)}
-  FunDefNode {IDENTIFIER, "next_day", @(42, 1)}
-    IdListNode 
-      IdentifierNode {IDENTIFIER, "y", @(42, 10)}
-      IdentifierNode {IDENTIFIER, "m", @(42, 13)}
-      IdentifierNode {IDENTIFIER, "d", @(42, 16)}
-    VarDefListNode 
-    StmtListNode 
-      IfNode 
-        ExprCompNode {EQUAL, "==", @(43, 11)}
-          IdentifierNode {IDENTIFIER, "d", @(43, 9)}
-          FunCallNode {IDENTIFIER, "number_of_days_in_month", @(43, 14)}
-            ExprListNode 
-              IdentifierNode {IDENTIFIER, "y", @(43, 38)}
-              IdentifierNode {IDENTIFIER, "m", @(43, 41)}
-        StmtListNode 
-          IfNode 
-            ExprCompNode {EQUAL, "==", @(44, 15)}
-              IdentifierNode {IDENTIFIER, "m", @(44, 13)}
-              IntLiteralNode {INT_LITERAL, "12", @(44, 18)}
-            StmtListNode 
-              ReturnNode {RETURN, "return", @(45, 13)}
-                ArrNode 
-                  ExprListNode 
-                    ExprAddNode {PLUS, "+", @(45, 23)}
-                      IdentifierNode {IDENTIFIER, "y", @(45, 21)}
-                      IntLiteralNode {INT_LITERAL, "1", @(45, 25)}
-                    IntLiteralNode {INT_LITERAL, "1", @(45, 28)}
-                    IntLiteralNode {INT_LITERAL, "1", @(45, 31)}
-            ElseIfListNode 
-            ElseNode 
-              StmtListNode 
-                ReturnNode {RETURN, "return", @(47, 13)}
-                  ArrNode 
-                    ExprListNode 
-                      IdentifierNode {IDENTIFIER, "y", @(47, 21)}
-                      ExprAddNode {PLUS, "+", @(47, 26)}
-                        IdentifierNode {IDENTIFIER, "m", @(47, 24)}
-                        IntLiteralNode {INT_LITERAL, "1", @(47, 28)}
-                      IntLiteralNode {INT_LITERAL, "1", @(47, 31)}
-        ElseIfListNode 
-        ElseNode 
-          StmtListNode 
-            ReturnNode {RETURN, "return", @(50, 9)}
-              ArrNode 
-                ExprListNode 
-                  IdentifierNode {IDENTIFIER, "y", @(50, 17)}
-                  IdentifierNode {IDENTIFIER, "m", @(50, 20)}
-                  ExprAddNode {PLUS, "+", @(50, 25)}
-                    IdentifierNode {IDENTIFIER, "d", @(50, 23)}
-                    IntLiteralNode {INT_LITERAL, "1", @(50, 27)}
-  FunDefNode {IDENTIFIER, "print_next_day", @(55, 1)}
-    IdListNode 
-      IdentifierNode {IDENTIFIER, "y", @(55, 16)}
-      IdentifierNode {IDENTIFIER, "m", @(55, 19)}
-      IdentifierNode {IDENTIFIER, "d", @(55, 22)}
-    VarDefListNode 
-      VarDefNode {VAR, "var", @(56, 5)}
-        IdListNode 
-          IdentifierNode {IDENTIFIER, "next", @(56, 9)}
-    StmtListNode 
-      FunCallNode {IDENTIFIER, "prints", @(57, 5)}
-        ExprListNode 
-          StrNode {STRING_LITERAL, ""The day after "", @(57, 12)}
-      FunCallNode {IDENTIFIER, "printi", @(58, 5)}
-        ExprListNode 
-          IdentifierNode {IDENTIFIER, "y", @(58, 12)}
-      FunCallNode {IDENTIFIER, "printc", @(59, 5)}
-        ExprListNode 
-          CharNode {CHAR_LITERAL, "'/'", @(59, 12)}
-      FunCallNode {IDENTIFIER, "printi", @(60, 5)}
-        ExprListNode 
-          IdentifierNode {IDENTIFIER, "m", @(60, 12)}
-      FunCallNode {IDENTIFIER, "printc", @(61, 5)}
-        ExprListNode 
-          CharNode {CHAR_LITERAL, "'/'", @(61, 12)}
-      FunCallNode {IDENTIFIER, "printi", @(62, 5)}
-        ExprListNode 
-          IdentifierNode {IDENTIFIER, "d", @(62, 12)}
-      FunCallNode {IDENTIFIER, "prints", @(63, 5)}
-        ExprListNode 
-          StrNode {STRING_LITERAL, "" is "", @(63, 12)}
-      AssignmentNode {IDENTIFIER, "next", @(64, 5)}
-        FunCallNode {IDENTIFIER, "next_day", @(64, 12)}
-          ExprListNode 
-            IdentifierNode {IDENTIFIER, "y", @(64, 21)}
-            IdentifierNode {IDENTIFIER, "m", @(64, 24)}
-            IdentifierNode {IDENTIFIER, "d", @(64, 27)}
-      FunCallNode {IDENTIFIER, "printi", @(65, 5)}
-        ExprListNode 
-          FunCallNode {IDENTIFIER, "get", @(65, 12)}
-            ExprListNode 
-              IdentifierNode {IDENTIFIER, "next", @(65, 16)}
-              IntLiteralNode {INT_LITERAL, "0", @(65, 22)}
-      FunCallNode {IDENTIFIER, "printc", @(66, 5)}
-        ExprListNode 
-          CharNode {CHAR_LITERAL, "'/'", @(66, 12)}
-      FunCallNode {IDENTIFIER, "printi", @(67, 5)}
-        ExprListNode 
-          FunCallNode {IDENTIFIER, "get", @(67, 12)}
-            ExprListNode 
-              IdentifierNode {IDENTIFIER, "next", @(67, 16)}
-              IntLiteralNode {INT_LITERAL, "1", @(67, 22)}
-      FunCallNode {IDENTIFIER, "printc", @(68, 5)}
-        ExprListNode 
-          CharNode {CHAR_LITERAL, "'/'", @(68, 12)}
-      FunCallNode {IDENTIFIER, "printi", @(69, 5)}
-        ExprListNode 
-          FunCallNode {IDENTIFIER, "get", @(69, 12)}
-            ExprListNode 
-              IdentifierNode {IDENTIFIER, "next", @(69, 16)}
-              IntLiteralNode {INT_LITERAL, "2", @(69, 22)}
-      FunCallNode {IDENTIFIER, "println", @(70, 5)}
-        ExprListNode 
-  FunDefNode {IDENTIFIER, "main", @(73, 1)}
-    IdListNode 
-    VarDefListNode 
-    StmtListNode 
-      FunCallNode {IDENTIFIER, "print_next_day", @(74, 5)}
-        ExprListNode 
-          IntLiteralNode {INT_LITERAL, "2019", @(74, 20)}
-          IntLiteralNode {INT_LITERAL, "2", @(74, 26)}
-          IntLiteralNode {INT_LITERAL, "21", @(74, 29)}
-      FunCallNode {IDENTIFIER, "print_next_day", @(75, 5)}
-        ExprListNode 
-          IntLiteralNode {INT_LITERAL, "2019", @(75, 20)}
-          IntLiteralNode {INT_LITERAL, "2", @(75, 26)}
-          IntLiteralNode {INT_LITERAL, "28", @(75, 29)}
-      FunCallNode {IDENTIFIER, "print_next_day", @(76, 5)}
-        ExprListNode 
-          IntLiteralNode {INT_LITERAL, "2020", @(76, 20)}
-          IntLiteralNode {INT_LITERAL, "2", @(76, 26)}
-          IntLiteralNode {INT_LITERAL, "28", @(76, 29)}
-      FunCallNode {IDENTIFIER, "print_next_day", @(77, 5)}
-        ExprListNode 
-          IntLiteralNode {INT_LITERAL, "2020", @(77, 20)}
-          IntLiteralNode {INT_LITERAL, "12", @(77, 26)}
-          IntLiteralNode {INT_LITERAL, "31", @(77, 30)}
+Syntax OK.
+Semantics OK.
+
+Global Symbol Table
+============
+Global Function Table
+============
+[add, 2]
+[get, 2]
+[is_leap_year, 1]
+[main, 0]
+[new, 1]
+[next_day, 3]
+[number_of_days_in_month, 2]
+[print_next_day, 3]
+[printc, 1]
+[printi, 1]
+[println, 0]
+[prints, 1]
+[readi, 0]
+[reads, 0]
+[set, 3]
+[size, 1]
+Local Tables
+============
+[is_leap_year, Symbol Table:
+- y 
+]
+[main, Symbol Table:
+]
+[next_day, Symbol Table:
+- y 
+- m 
+- d 
+]
+[number_of_days_in_month, Symbol Table:
+- y 
+- m 
+- result 
+]
+[print_next_day, Symbol Table:
+- y 
+- m 
+- d 
+- next 
+]

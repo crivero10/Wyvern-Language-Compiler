@@ -3,10 +3,13 @@
  * (C) 2019 Ariel Ortiz, ITESM CEM
  */
 
+var global;
+
 // Prints all the elements in the array list referred by handle a.
 print_array(a) {
     var first, i, n;
     first = true;
+    globalX = 12;
     printc('[');
     i = 0;
     n = size(a);
