@@ -1,5 +1,5 @@
 /*=======================================================================
-  Wyvern compiler: Version 0.1
+  Wyvern compiler: Version 0.2
   Copyright (C) 2019 Carlos Rivero A01371368, ITESM CEM
 ========================================================================*/
 
@@ -18,20 +18,20 @@ namespace Wyvern {
             @"
                 (?<And>               &&        )
               | (?<Comment>           (\/\*(\*(?!\/)|[^*])*\*\/)|(\/\/[^\n\r]+?(?:\*\)|[\n\r])) )
-              | (?<NotEqual>          !=        )
-              | (?<Equal>             ==        )
-              | (?<Increment>         \+\+        )
-              | (?<Decrement>         \-\-        )
+              | (?<NotEqual>          [!][=]        )
+              | (?<Equal>             [=]{2}        )
+              | (?<Increment>         [+]{2}        )
+              | (?<Decrement>         [-]{2}        )
+              | (?<Or>                [|]{2}      )
+              | (?<Not>               [!]       )
+              | (?<GreaterEqual>      [>][=]        )
+              | (?<LessEqual>         [<][=]        )
               | (?<Assign>            [=]       )
-              | (?<Or>                \|\|      )
-              | (?<Not>               \!        )
               | (?<Less>              [<]       )
               | (?<Greater>           [>]       )
-              | (?<GreaterEqual>      >=        )
-              | (?<LessEqual>         <=        )
               | (?<StringLiteral>     "".*""    )
               | (?<CharLiteral>       '([^\n\\']|\\n|\\r|\\t|\\'|\\\\|\\""|\\u[0-9a-fA-F]{6})'       )
-              | (?<Identifier>        [a-zA-Z_]+ )
+              | (?<Identifier>        [A-Za-z][0-9A-Za-z_]* )
               | (?<IntLiteral>        \d+       )
               | (?<Mul>               [*]       )
               | (?<Plus>              [+]       )
