@@ -1,5 +1,5 @@
 /*=======================================================================
-  Wyvern compiler: Version 0.2
+  Wyvern compiler: Version 0.3
   Copyright (C) 2019 Carlos Rivero A01371368, ITESM CEM
 ========================================================================*/
 
@@ -16,7 +16,8 @@ namespace Wyvern {
         //-----------------------------------------------------------
         static readonly string[] ReleaseIncludes = {
             "Lexical analysis",
-            "Syntactic analysis"
+            "Syntactic analysis",
+            "AST construction"
         };
 
         //-----------------------------------------------------------
@@ -49,12 +50,12 @@ namespace Wyvern {
                 Environment.Exit(1);
             }
 
-            try {
-                var inputPath = args[0];
+            try {            
+                var inputPath = args[0];                
                 var input = File.ReadAllText(inputPath);
                 var parser = new Parser(new Scanner(input).Start().GetEnumerator());
-                parser.Program();
-                Console.WriteLine("Syntax OK.");
+                var program = parser.Program();
+                Console.Write(program.ToStringTree());
 
             } catch (Exception e) {
 

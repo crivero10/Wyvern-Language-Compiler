@@ -1,0 +1,126 @@
+Wyvern compiler, version 0.2
+Copyright © 2019 by Carlos Rivero, ITESM CEM.
+This program has absolutely no warranty.
+
+Included in this release:
+   * Lexical analysis
+   * Syntactic analysis
+   * AST construction
+
+ProgramNode 
+  FunDefNode {IDENTIFIER, "iterative_factorial", @(7, 1)}
+    IdListNode 
+      IdentifierNode {IDENTIFIER, "n", @(7, 21)}
+    VarDefListNode 
+      VarDefNode {VAR, "var", @(8, 5)}
+        IdListNode 
+          IdentifierNode {IDENTIFIER, "result", @(8, 9)}
+          IdentifierNode {IDENTIFIER, "i", @(8, 17)}
+    StmtListNode 
+      AssignmentNode {IDENTIFIER, "result", @(9, 5)}
+        IntLiteralNode {INT_LITERAL, "1", @(9, 14)}
+      AssignmentNode {IDENTIFIER, "i", @(10, 5)}
+        IntLiteralNode {INT_LITERAL, "2", @(10, 9)}
+      WhileNode {WHILE, "while", @(11, 5)}
+        StmtListNode 
+          AssignmentNode {IDENTIFIER, "result", @(12, 9)}
+            ExprMulNode {MUL, "*", @(12, 25)}
+              IdentifierNode {IDENTIFIER, "result", @(12, 18)}
+              IdentifierNode {IDENTIFIER, "i", @(12, 27)}
+          IncrementNode {IDENTIFIER, "i", @(13, 9)}
+      ReturnNode {RETURN, "return", @(15, 5)}
+        IdentifierNode {IDENTIFIER, "result", @(15, 12)}
+  FunDefNode {IDENTIFIER, "recursive_factorial", @(19, 1)}
+    IdListNode 
+      IdentifierNode {IDENTIFIER, "n", @(19, 21)}
+    VarDefListNode 
+    StmtListNode 
+      IfNode 
+        ExprRelNode {LESS_EQUAL, "<=", @(20, 11)}
+          IdentifierNode {IDENTIFIER, "n", @(20, 9)}
+          IntLiteralNode {INT_LITERAL, "0", @(20, 14)}
+        StmtListNode 
+          ReturnNode {RETURN, "return", @(21, 9)}
+            IntLiteralNode {INT_LITERAL, "1", @(21, 16)}
+        ElseIfListNode 
+        ElseNode 
+          StmtListNode 
+            ReturnNode {RETURN, "return", @(23, 9)}
+              ExprMulNode {MUL, "*", @(23, 18)}
+                IdentifierNode {IDENTIFIER, "n", @(23, 16)}
+                FunCallNode {IDENTIFIER, "recursive_factorial", @(23, 20)}
+                  ExprListNode 
+                    ExprAddNode {NEG, "-", @(23, 42)}
+                      IdentifierNode {IDENTIFIER, "n", @(23, 40)}
+                      IntLiteralNode {INT_LITERAL, "1", @(23, 44)}
+  FunDefNode {IDENTIFIER, "main", @(27, 1)}
+    IdListNode 
+    VarDefListNode 
+      VarDefNode {VAR, "var", @(28, 5)}
+        IdListNode 
+          IdentifierNode {IDENTIFIER, "num", @(28, 9)}
+          IdentifierNode {IDENTIFIER, "option", @(28, 14)}
+    StmtListNode 
+      WhileNode {WHILE, "while", @(29, 5)}
+        StmtListNode 
+          FunCallNode {IDENTIFIER, "prints", @(30, 9)}
+            ExprListNode 
+              StrNode {STRING_LITERAL, ""Input a number: "", @(30, 16)}
+          AssignmentNode {IDENTIFIER, "num", @(31, 9)}
+            FunCallNode {IDENTIFIER, "readi", @(31, 15)}
+              ExprListNode 
+          FunCallNode {IDENTIFIER, "prints", @(32, 9)}
+            ExprListNode 
+              StrNode {STRING_LITERAL, ""Iterative factorial: "", @(32, 16)}
+          FunCallNode {IDENTIFIER, "printi", @(33, 9)}
+            ExprListNode 
+              FunCallNode {IDENTIFIER, "iterative_factorial", @(33, 16)}
+                ExprListNode 
+                  IdentifierNode {IDENTIFIER, "num", @(33, 36)}
+          FunCallNode {IDENTIFIER, "println", @(34, 9)}
+            ExprListNode 
+          FunCallNode {IDENTIFIER, "prints", @(35, 9)}
+            ExprListNode 
+              StrNode {STRING_LITERAL, ""Recursive factorial: "", @(35, 16)}
+          FunCallNode {IDENTIFIER, "printi", @(36, 9)}
+            ExprListNode 
+              FunCallNode {IDENTIFIER, "recursive_factorial", @(36, 16)}
+                ExprListNode 
+                  IdentifierNode {IDENTIFIER, "num", @(36, 36)}
+          FunCallNode {IDENTIFIER, "println", @(37, 9)}
+            ExprListNode 
+          FunCallNode {IDENTIFIER, "prints", @(38, 9)}
+            ExprListNode 
+              StrNode {STRING_LITERAL, ""Compute another factorial? "", @(38, 16)}
+          AssignmentNode {IDENTIFIER, "option", @(39, 9)}
+            FunCallNode {IDENTIFIER, "reads", @(39, 18)}
+              ExprListNode 
+          IfNode 
+            ExprCompNode {EQUAL, "==", @(40, 26)}
+              FunCallNode {IDENTIFIER, "size", @(40, 13)}
+                ExprListNode 
+                  IdentifierNode {IDENTIFIER, "option", @(40, 18)}
+              IntLiteralNode {INT_LITERAL, "0", @(40, 29)}
+            StmtListNode 
+              AssignmentNode {IDENTIFIER, "option", @(41, 13)}
+                CharNode {CHAR_LITERAL, "'N'", @(41, 22)}
+            ElseIfListNode 
+            ElseNode 
+              StmtListNode 
+                AssignmentNode {IDENTIFIER, "option", @(43, 13)}
+                  FunCallNode {IDENTIFIER, "get", @(43, 22)}
+                    ExprListNode 
+                      IdentifierNode {IDENTIFIER, "option", @(43, 26)}
+                      IntLiteralNode {INT_LITERAL, "0", @(43, 34)}
+          IfNode 
+            ExprAndNode {AND, "&&", @(45, 27)}
+              ExprCompNode {NOTEQUAL, "!=", @(45, 20)}
+                IdentifierNode {IDENTIFIER, "option", @(45, 13)}
+                CharNode {CHAR_LITERAL, "'Y'", @(45, 23)}
+              ExprCompNode {NOTEQUAL, "!=", @(45, 37)}
+                IdentifierNode {IDENTIFIER, "option", @(45, 30)}
+                CharNode {CHAR_LITERAL, "'y'", @(45, 40)}
+            StmtListNode 
+              StmtNode {BREAK, "break", @(46, 13)}
+            ElseIfListNode 
+            ElseNode 

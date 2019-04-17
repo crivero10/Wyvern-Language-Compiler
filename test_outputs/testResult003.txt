@@ -1,0 +1,122 @@
+Wyvern compiler, version 0.2
+Copyright © 2019 by Carlos Rivero, ITESM CEM.
+This program has absolutely no warranty.
+
+Included in this release:
+   * Lexical analysis
+   * Syntactic analysis
+   * AST construction
+
+ProgramNode 
+  FunDefNode {IDENTIFIER, "is_palindrome", @(7, 1)}
+    IdListNode 
+      IdentifierNode {IDENTIFIER, "str", @(7, 15)}
+    VarDefListNode 
+      VarDefNode {VAR, "var", @(8, 5)}
+        IdListNode 
+          IdentifierNode {IDENTIFIER, "start", @(8, 9)}
+          IdentifierNode {IDENTIFIER, "finish", @(8, 16)}
+    StmtListNode 
+      AssignmentNode {IDENTIFIER, "start", @(9, 5)}
+        IntLiteralNode {INT_LITERAL, "0", @(9, 13)}
+      AssignmentNode {IDENTIFIER, "finish", @(10, 5)}
+        ExprAddNode {NEG, "-", @(10, 24)}
+          FunCallNode {IDENTIFIER, "size", @(10, 14)}
+            ExprListNode 
+              IdentifierNode {IDENTIFIER, "str", @(10, 19)}
+          IntLiteralNode {INT_LITERAL, "1", @(10, 26)}
+      WhileNode {WHILE, "while", @(11, 5)}
+        StmtListNode 
+          IfNode 
+            ExprCompNode {NOTEQUAL, "!=", @(12, 29)}
+              FunCallNode {IDENTIFIER, "get", @(12, 13)}
+                ExprListNode 
+                  IdentifierNode {IDENTIFIER, "str", @(12, 17)}
+                  IdentifierNode {IDENTIFIER, "start", @(12, 22)}
+              FunCallNode {IDENTIFIER, "get", @(12, 32)}
+                ExprListNode 
+                  IdentifierNode {IDENTIFIER, "str", @(12, 36)}
+                  IdentifierNode {IDENTIFIER, "finish", @(12, 41)}
+            StmtListNode 
+              ReturnNode {RETURN, "return", @(13, 13)}
+                IntLiteralNode {FALSE, "false", @(13, 20)}
+            ElseIfListNode 
+            ElseNode 
+          IncrementNode {IDENTIFIER, "start", @(15, 9)}
+          DecrementNode {IDENTIFIER, "finish", @(16, 9)}
+      ReturnNode {RETURN, "return", @(18, 5)}
+        TrueNode {TRUE, "true", @(18, 12)}
+  FunDefNode {IDENTIFIER, "main", @(21, 1)}
+    IdListNode 
+    VarDefListNode 
+      VarDefNode {VAR, "var", @(22, 5)}
+        IdListNode 
+          IdentifierNode {IDENTIFIER, "str", @(22, 9)}
+          IdentifierNode {IDENTIFIER, "option", @(22, 14)}
+    StmtListNode 
+      WhileNode {WHILE, "while", @(23, 5)}
+        StmtListNode 
+          FunCallNode {IDENTIFIER, "prints", @(24, 9)}
+            ExprListNode 
+              StrNode {STRING_LITERAL, ""Input a string: "", @(24, 16)}
+          AssignmentNode {IDENTIFIER, "str", @(25, 9)}
+            FunCallNode {IDENTIFIER, "reads", @(25, 15)}
+              ExprListNode 
+          FunCallNode {IDENTIFIER, "prints", @(26, 9)}
+            ExprListNode 
+              StrNode {STRING_LITERAL, ""The string \""", @(26, 16)}
+          FunCallNode {IDENTIFIER, "prints", @(27, 9)}
+            ExprListNode 
+              IdentifierNode {IDENTIFIER, "str", @(27, 16)}
+          FunCallNode {IDENTIFIER, "prints", @(28, 9)}
+            ExprListNode 
+              StrNode {STRING_LITERAL, ""\" is "", @(28, 16)}
+          IfNode 
+            ExprUnaryNode {NOT, "!", @(29, 13)}
+              FunCallNode {IDENTIFIER, "is_palindrome", @(29, 14)}
+                ExprListNode 
+                  IdentifierNode {IDENTIFIER, "str", @(29, 28)}
+            StmtListNode 
+              FunCallNode {IDENTIFIER, "prints", @(31, 13)}
+                ExprListNode 
+                  StrNode {STRING_LITERAL, ""NOT /*Hey*/ "", @(31, 20)}
+            ElseIfListNode 
+            ElseNode 
+          FunCallNode {IDENTIFIER, "prints", @(33, 9)}
+            ExprListNode 
+              StrNode {STRING_LITERAL, ""a palindrome.\n"", @(33, 16)}
+          FunCallNode {IDENTIFIER, "prints", @(34, 9)}
+            ExprListNode 
+              StrNode {STRING_LITERAL, ""Check another string? "", @(34, 16)}
+          AssignmentNode {IDENTIFIER, "option", @(35, 9)}
+            FunCallNode {IDENTIFIER, "reads", @(35, 18)}
+              ExprListNode 
+          IfNode 
+            ExprCompNode {EQUAL, "==", @(36, 26)}
+              FunCallNode {IDENTIFIER, "size", @(36, 13)}
+                ExprListNode 
+                  IdentifierNode {IDENTIFIER, "option", @(36, 18)}
+              IntLiteralNode {INT_LITERAL, "0", @(36, 29)}
+            StmtListNode 
+              AssignmentNode {IDENTIFIER, "option", @(37, 13)}
+                CharNode {CHAR_LITERAL, "'N'", @(37, 22)}
+            ElseIfListNode 
+            ElseNode 
+              StmtListNode 
+                AssignmentNode {IDENTIFIER, "option", @(39, 13)}
+                  FunCallNode {IDENTIFIER, "get", @(39, 22)}
+                    ExprListNode 
+                      IdentifierNode {IDENTIFIER, "option", @(39, 26)}
+                      IntLiteralNode {INT_LITERAL, "0", @(39, 34)}
+          IfNode 
+            ExprAndNode {AND, "&&", @(41, 27)}
+              ExprCompNode {NOTEQUAL, "!=", @(41, 20)}
+                IdentifierNode {IDENTIFIER, "option", @(41, 13)}
+                CharNode {CHAR_LITERAL, "'Y'", @(41, 23)}
+              ExprCompNode {NOTEQUAL, "!=", @(41, 37)}
+                IdentifierNode {IDENTIFIER, "option", @(41, 30)}
+                CharNode {CHAR_LITERAL, "'y'", @(41, 40)}
+            StmtListNode 
+              StmtNode {BREAK, "break", @(42, 13)}
+            ElseIfListNode 
+            ElseNode 

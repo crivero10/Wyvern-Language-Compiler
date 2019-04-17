@@ -1,0 +1,154 @@
+Wyvern compiler, version 0.2
+Copyright © 2019 by Carlos Rivero, ITESM CEM.
+This program has absolutely no warranty.
+
+Included in this release:
+   * Lexical analysis
+   * Syntactic analysis
+   * AST construction
+
+ProgramNode 
+  VarDefNode {VAR, "var", @(7, 1)}
+    IdListNode 
+      IdentifierNode {IDENTIFIER, "fails", @(7, 5)}
+  FunDefNode {IDENTIFIER, "assert", @(9, 1)}
+    IdListNode 
+      IdentifierNode {IDENTIFIER, "value1", @(9, 8)}
+      IdentifierNode {IDENTIFIER, "value2", @(9, 16)}
+      IdentifierNode {IDENTIFIER, "message", @(9, 24)}
+    VarDefListNode 
+    StmtListNode 
+      IfNode 
+        ExprCompNode {NOTEQUAL, "!=", @(10, 16)}
+          IdentifierNode {IDENTIFIER, "value1", @(10, 9)}
+          IdentifierNode {IDENTIFIER, "value2", @(10, 19)}
+        StmtListNode 
+          AssignmentNode {IDENTIFIER, "fails", @(11, 9)}
+            ExprAddNode {PLUS, "+", @(11, 23)}
+              IdentifierNode {IDENTIFIER, "fails", @(11, 17)}
+              IntLiteralNode {INT_LITERAL, "1", @(11, 25)}
+          FunCallNode {IDENTIFIER, "prints", @(12, 9)}
+            ExprListNode 
+              StrNode {STRING_LITERAL, ""Assertion failure: "", @(12, 16)}
+          FunCallNode {IDENTIFIER, "prints", @(13, 9)}
+            ExprListNode 
+              IdentifierNode {IDENTIFIER, "message", @(13, 16)}
+          FunCallNode {IDENTIFIER, "println", @(14, 9)}
+            ExprListNode 
+        ElseIfListNode 
+        ElseNode 
+  FunDefNode {IDENTIFIER, "main", @(18, 1)}
+    IdListNode 
+    VarDefListNode 
+      VarDefNode {VAR, "var", @(19, 5)}
+        IdListNode 
+          IdentifierNode {IDENTIFIER, "s", @(19, 9)}
+          IdentifierNode {IDENTIFIER, "a", @(19, 12)}
+          IdentifierNode {IDENTIFIER, "i", @(19, 15)}
+          IdentifierNode {IDENTIFIER, "n", @(19, 18)}
+    StmtListNode 
+      AssignmentNode {IDENTIFIER, "fails", @(20, 5)}
+        IntLiteralNode {INT_LITERAL, "0", @(20, 13)}
+      FunCallNode {IDENTIFIER, "assert", @(21, 5)}
+        ExprListNode 
+          CharNode {CHAR_LITERAL, "'\n'", @(21, 12)}
+          IntLiteralNode {INT_LITERAL, "10", @(21, 18)}
+          StrNode {STRING_LITERAL, ""error in newline literal"", @(21, 22)}
+      FunCallNode {IDENTIFIER, "assert", @(22, 5)}
+        ExprListNode 
+          CharNode {CHAR_LITERAL, "'\r'", @(22, 12)}
+          IntLiteralNode {INT_LITERAL, "13", @(22, 18)}
+          StrNode {STRING_LITERAL, ""error in carriage return literal"", @(22, 22)}
+      FunCallNode {IDENTIFIER, "assert", @(23, 5)}
+        ExprListNode 
+          CharNode {CHAR_LITERAL, "'\t'", @(23, 12)}
+          IntLiteralNode {INT_LITERAL, "9", @(23, 18)}
+          StrNode {STRING_LITERAL, ""error in tab literal"", @(23, 21)}
+      FunCallNode {IDENTIFIER, "assert", @(24, 5)}
+        ExprListNode 
+          CharNode {CHAR_LITERAL, "'\\'", @(24, 12)}
+          IntLiteralNode {INT_LITERAL, "92", @(24, 18)}
+          StrNode {STRING_LITERAL, ""error in backslash literal"", @(24, 22)}
+      FunCallNode {IDENTIFIER, "assert", @(25, 5)}
+        ExprListNode 
+          CharNode {CHAR_LITERAL, "'\''", @(25, 12)}
+          IntLiteralNode {INT_LITERAL, "39", @(25, 18)}
+          StrNode {STRING_LITERAL, ""error in single quote literal"", @(25, 22)}
+      FunCallNode {IDENTIFIER, "assert", @(26, 5)}
+        ExprListNode 
+          CharNode {CHAR_LITERAL, "'\"'", @(26, 12)}
+          IntLiteralNode {INT_LITERAL, "34", @(26, 18)}
+          StrNode {STRING_LITERAL, ""error in double quote literal"", @(26, 22)}
+      FunCallNode {IDENTIFIER, "assert", @(27, 5)}
+        ExprListNode 
+          CharNode {CHAR_LITERAL, "'\u000041'", @(27, 12)}
+          CharNode {CHAR_LITERAL, "'A'", @(27, 24)}
+          StrNode {STRING_LITERAL, ""error in letter A literal code point"", @(27, 29)}
+      FunCallNode {IDENTIFIER, "assert", @(28, 5)}
+        ExprListNode 
+          CharNode {CHAR_LITERAL, "'\u0020AC'", @(28, 12)}
+          IntLiteralNode {INT_LITERAL, "8364", @(28, 24)}
+          StrNode {STRING_LITERAL, ""error in euro literal code point"", @(28, 30)}
+      AssignmentNode {IDENTIFIER, "s", @(29, 5)}
+        StrNode {STRING_LITERAL, ""\u0000A1\u0020ACste ni\u0000F1o \u0020ACst\u0000E1 bien \u0000D1o\u0000F1o!\n"", @(29, 9)}
+      AssignmentNode {IDENTIFIER, "a", @(30, 5)}
+        ArrNode 
+          ExprListNode 
+            IntLiteralNode {INT_LITERAL, "161", @(30, 10)}
+            IntLiteralNode {INT_LITERAL, "8364", @(30, 15)}
+            IntLiteralNode {INT_LITERAL, "115", @(30, 21)}
+            IntLiteralNode {INT_LITERAL, "116", @(30, 26)}
+            IntLiteralNode {INT_LITERAL, "101", @(30, 31)}
+            IntLiteralNode {INT_LITERAL, "32", @(30, 36)}
+            IntLiteralNode {INT_LITERAL, "110", @(30, 40)}
+            IntLiteralNode {INT_LITERAL, "105", @(30, 45)}
+            IntLiteralNode {INT_LITERAL, "241", @(30, 50)}
+            IntLiteralNode {INT_LITERAL, "111", @(30, 55)}
+            IntLiteralNode {INT_LITERAL, "32", @(30, 60)}
+            IntLiteralNode {INT_LITERAL, "8364", @(30, 64)}
+            IntLiteralNode {INT_LITERAL, "115", @(30, 70)}
+            IntLiteralNode {INT_LITERAL, "116", @(30, 75)}
+            IntLiteralNode {INT_LITERAL, "225", @(31, 10)}
+            IntLiteralNode {INT_LITERAL, "32", @(31, 15)}
+            IntLiteralNode {INT_LITERAL, "98", @(31, 19)}
+            IntLiteralNode {INT_LITERAL, "105", @(31, 23)}
+            IntLiteralNode {INT_LITERAL, "101", @(31, 28)}
+            IntLiteralNode {INT_LITERAL, "110", @(31, 33)}
+            IntLiteralNode {INT_LITERAL, "32", @(31, 38)}
+            IntLiteralNode {INT_LITERAL, "209", @(31, 42)}
+            IntLiteralNode {INT_LITERAL, "111", @(31, 47)}
+            IntLiteralNode {INT_LITERAL, "241", @(31, 52)}
+            IntLiteralNode {INT_LITERAL, "111", @(31, 57)}
+            IntLiteralNode {INT_LITERAL, "33", @(31, 62)}
+            IntLiteralNode {INT_LITERAL, "10", @(31, 66)}
+      AssignmentNode {IDENTIFIER, "i", @(32, 5)}
+        IntLiteralNode {INT_LITERAL, "0", @(32, 9)}
+      AssignmentNode {IDENTIFIER, "n", @(33, 5)}
+        FunCallNode {IDENTIFIER, "size", @(33, 9)}
+          ExprListNode 
+            IdentifierNode {IDENTIFIER, "s", @(33, 14)}
+      WhileNode {WHILE, "while", @(34, 5)}
+        StmtListNode 
+          FunCallNode {IDENTIFIER, "assert", @(35, 9)}
+            ExprListNode 
+              FunCallNode {IDENTIFIER, "get", @(35, 16)}
+                ExprListNode 
+                  IdentifierNode {IDENTIFIER, "a", @(35, 20)}
+                  IdentifierNode {IDENTIFIER, "i", @(35, 23)}
+              FunCallNode {IDENTIFIER, "get", @(35, 27)}
+                ExprListNode 
+                  IdentifierNode {IDENTIFIER, "s", @(35, 31)}
+                  IdentifierNode {IDENTIFIER, "i", @(35, 34)}
+              StrNode {STRING_LITERAL, ""error in string literal"", @(35, 38)}
+          IncrementNode {IDENTIFIER, "i", @(36, 9)}
+      FunCallNode {IDENTIFIER, "printi", @(38, 5)}
+        ExprListNode 
+          IdentifierNode {IDENTIFIER, "fails", @(38, 12)}
+      FunCallNode {IDENTIFIER, "prints", @(39, 5)}
+        ExprListNode 
+          StrNode {STRING_LITERAL, "" assertion failure(s) found."", @(39, 12)}
+      FunCallNode {IDENTIFIER, "println", @(40, 5)}
+        ExprListNode 
+      FunCallNode {IDENTIFIER, "prints", @(41, 5)}
+        ExprListNode 
+          IdentifierNode {IDENTIFIER, "a", @(41, 12)}

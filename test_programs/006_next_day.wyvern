@@ -75,3 +75,4 @@ main() {
     print_next_day(2019, 2, 28);
     print_next_day(2020, 2, 28);
     print_next_day(2020, 12, 31);
+}
