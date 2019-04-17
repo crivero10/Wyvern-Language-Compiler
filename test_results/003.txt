@@ -1,0 +1,193 @@
+Wyvern compiler, version 0.1
+Copyright © 2019 by Carlos Rivero, ITESM CEM.
+This program has absolutely no warranty.
+
+Included in this release:
+   * Lexical analysis
+
+===== Tokens from: "test_programs/003_palindrome.wyvern" =====
+[1] {COMMENT, "/* File: 003_palindrome.wyvern
+ * Determines if a string is a palindrome.
+ * (C) 2019 Ariel Ortiz, ITESM CEM
+ */", @(1, 1)}
+[2] {COMMENT, "// Returns true if str is a palindrome, false otherwise.
+", @(6, 1)}
+[3] {IDENTIFIER, "is_palindrome", @(7, 1)}
+[4] {PARENTHESIS_OPEN, "(", @(7, 14)}
+[5] {IDENTIFIER, "str", @(7, 15)}
+[6] {PARENTHESIS_CLOSE, ")", @(7, 18)}
+[7] {LLAVE_OPEN, "{", @(7, 20)}
+[8] {VAR, "var", @(8, 5)}
+[9] {IDENTIFIER, "start", @(8, 9)}
+[10] {COMMA, ",", @(8, 14)}
+[11] {IDENTIFIER, "finish", @(8, 16)}
+[12] {SEMICOLON, ";", @(8, 22)}
+[13] {IDENTIFIER, "start", @(9, 5)}
+[14] {ASSIGN, "=", @(9, 11)}
+[15] {INT_LITERAL, "0", @(9, 13)}
+[16] {SEMICOLON, ";", @(9, 14)}
+[17] {IDENTIFIER, "finish", @(10, 5)}
+[18] {ASSIGN, "=", @(10, 12)}
+[19] {IDENTIFIER, "size", @(10, 14)}
+[20] {PARENTHESIS_OPEN, "(", @(10, 18)}
+[21] {IDENTIFIER, "str", @(10, 19)}
+[22] {PARENTHESIS_CLOSE, ")", @(10, 22)}
+[23] {NEG, "-", @(10, 24)}
+[24] {INT_LITERAL, "1", @(10, 26)}
+[25] {SEMICOLON, ";", @(10, 27)}
+[26] {WHILE, "while", @(11, 5)}
+[27] {PARENTHESIS_OPEN, "(", @(11, 11)}
+[28] {IDENTIFIER, "start", @(11, 12)}
+[29] {LESS, "<", @(11, 18)}
+[30] {IDENTIFIER, "finish", @(11, 20)}
+[31] {PARENTHESIS_CLOSE, ")", @(11, 26)}
+[32] {LLAVE_OPEN, "{", @(11, 28)}
+[33] {IF, "if", @(12, 9)}
+[34] {PARENTHESIS_OPEN, "(", @(12, 12)}
+[35] {IDENTIFIER, "get", @(12, 13)}
+[36] {PARENTHESIS_OPEN, "(", @(12, 16)}
+[37] {IDENTIFIER, "str", @(12, 17)}
+[38] {COMMA, ",", @(12, 20)}
+[39] {IDENTIFIER, "start", @(12, 22)}
+[40] {PARENTHESIS_CLOSE, ")", @(12, 27)}
+[41] {NOTEQUAL, "!=", @(12, 29)}
+[42] {IDENTIFIER, "get", @(12, 32)}
+[43] {PARENTHESIS_OPEN, "(", @(12, 35)}
+[44] {IDENTIFIER, "str", @(12, 36)}
+[45] {COMMA, ",", @(12, 39)}
+[46] {IDENTIFIER, "finish", @(12, 41)}
+[47] {PARENTHESIS_CLOSE, ")", @(12, 47)}
+[48] {PARENTHESIS_CLOSE, ")", @(12, 48)}
+[49] {LLAVE_OPEN, "{", @(12, 50)}
+[50] {RETURN, "return", @(13, 13)}
+[51] {FALSE, "false", @(13, 20)}
+[52] {SEMICOLON, ";", @(13, 25)}
+[53] {LLAVE_CLOSE, "}", @(14, 9)}
+[54] {IDENTIFIER, "start", @(15, 9)}
+[55] {INCREMENT, "++", @(15, 14)}
+[56] {SEMICOLON, ";", @(15, 16)}
+[57] {IDENTIFIER, "finish", @(16, 9)}
+[58] {DECREMENT, "--", @(16, 15)}
+[59] {SEMICOLON, ";", @(16, 17)}
+[60] {LLAVE_CLOSE, "}", @(17, 5)}
+[61] {RETURN, "return", @(18, 5)}
+[62] {TRUE, "true", @(18, 12)}
+[63] {SEMICOLON, ";", @(18, 16)}
+[64] {LLAVE_CLOSE, "}", @(19, 1)}
+[65] {IDENTIFIER, "main", @(21, 1)}
+[66] {PARENTHESIS_OPEN, "(", @(21, 5)}
+[67] {PARENTHESIS_CLOSE, ")", @(21, 6)}
+[68] {LLAVE_OPEN, "{", @(21, 8)}
+[69] {VAR, "var", @(22, 5)}
+[70] {IDENTIFIER, "str", @(22, 9)}
+[71] {COMMA, ",", @(22, 12)}
+[72] {IDENTIFIER, "option", @(22, 14)}
+[73] {SEMICOLON, ";", @(22, 20)}
+[74] {WHILE, "while", @(23, 5)}
+[75] {PARENTHESIS_OPEN, "(", @(23, 11)}
+[76] {TRUE, "true", @(23, 12)}
+[77] {PARENTHESIS_CLOSE, ")", @(23, 16)}
+[78] {LLAVE_OPEN, "{", @(23, 18)}
+[79] {IDENTIFIER, "prints", @(24, 9)}
+[80] {PARENTHESIS_OPEN, "(", @(24, 15)}
+[81] {STRING_LITERAL, ""Input a string: "", @(24, 16)}
+[82] {PARENTHESIS_CLOSE, ")", @(24, 34)}
+[83] {SEMICOLON, ";", @(24, 35)}
+[84] {IDENTIFIER, "str", @(25, 9)}
+[85] {ASSIGN, "=", @(25, 13)}
+[86] {IDENTIFIER, "reads", @(25, 15)}
+[87] {PARENTHESIS_OPEN, "(", @(25, 20)}
+[88] {PARENTHESIS_CLOSE, ")", @(25, 21)}
+[89] {SEMICOLON, ";", @(25, 22)}
+[90] {IDENTIFIER, "prints", @(26, 9)}
+[91] {PARENTHESIS_OPEN, "(", @(26, 15)}
+[92] {STRING_LITERAL, ""The string \""", @(26, 16)}
+[93] {PARENTHESIS_CLOSE, ")", @(26, 31)}
+[94] {SEMICOLON, ";", @(26, 32)}
+[95] {IDENTIFIER, "prints", @(27, 9)}
+[96] {PARENTHESIS_OPEN, "(", @(27, 15)}
+[97] {IDENTIFIER, "str", @(27, 16)}
+[98] {PARENTHESIS_CLOSE, ")", @(27, 19)}
+[99] {SEMICOLON, ";", @(27, 20)}
+[100] {IDENTIFIER, "prints", @(28, 9)}
+[101] {PARENTHESIS_OPEN, "(", @(28, 15)}
+[102] {STRING_LITERAL, ""\" is "", @(28, 16)}
+[103] {PARENTHESIS_CLOSE, ")", @(28, 24)}
+[104] {SEMICOLON, ";", @(28, 25)}
+[105] {IF, "if", @(29, 9)}
+[106] {PARENTHESIS_OPEN, "(", @(29, 12)}
+[107] {NOT, "!", @(29, 13)}
+[108] {IDENTIFIER, "is_palindrome", @(29, 14)}
+[109] {PARENTHESIS_OPEN, "(", @(29, 27)}
+[110] {IDENTIFIER, "str", @(29, 28)}
+[111] {PARENTHESIS_CLOSE, ")", @(29, 31)}
+[112] {PARENTHESIS_CLOSE, ")", @(29, 32)}
+[113] {LLAVE_OPEN, "{", @(29, 34)}
+[114] {COMMENT, "// "Hey there m8"
+", @(30, 13)}
+[115] {IDENTIFIER, "prints", @(31, 13)}
+[116] {PARENTHESIS_OPEN, "(", @(31, 19)}
+[117] {STRING_LITERAL, ""NOT /*Hey*/ "", @(31, 20)}
+[118] {PARENTHESIS_CLOSE, ")", @(31, 34)}
+[119] {SEMICOLON, ";", @(31, 35)}
+[120] {LLAVE_CLOSE, "}", @(32, 9)}
+[121] {IDENTIFIER, "prints", @(33, 9)}
+[122] {PARENTHESIS_OPEN, "(", @(33, 15)}
+[123] {STRING_LITERAL, ""a palindrome.\n"", @(33, 16)}
+[124] {PARENTHESIS_CLOSE, ")", @(33, 33)}
+[125] {SEMICOLON, ";", @(33, 34)}
+[126] {IDENTIFIER, "prints", @(34, 9)}
+[127] {PARENTHESIS_OPEN, "(", @(34, 15)}
+[128] {STRING_LITERAL, ""Check another string? "", @(34, 16)}
+[129] {PARENTHESIS_CLOSE, ")", @(34, 40)}
+[130] {SEMICOLON, ";", @(34, 41)}
+[131] {IDENTIFIER, "option", @(35, 9)}
+[132] {ASSIGN, "=", @(35, 16)}
+[133] {IDENTIFIER, "reads", @(35, 18)}
+[134] {PARENTHESIS_OPEN, "(", @(35, 23)}
+[135] {PARENTHESIS_CLOSE, ")", @(35, 24)}
+[136] {SEMICOLON, ";", @(35, 25)}
+[137] {IF, "if", @(36, 9)}
+[138] {PARENTHESIS_OPEN, "(", @(36, 12)}
+[139] {IDENTIFIER, "size", @(36, 13)}
+[140] {PARENTHESIS_OPEN, "(", @(36, 17)}
+[141] {IDENTIFIER, "option", @(36, 18)}
+[142] {PARENTHESIS_CLOSE, ")", @(36, 24)}
+[143] {EQUAL, "==", @(36, 26)}
+[144] {INT_LITERAL, "0", @(36, 29)}
+[145] {PARENTHESIS_CLOSE, ")", @(36, 30)}
+[146] {LLAVE_OPEN, "{", @(36, 32)}
+[147] {IDENTIFIER, "option", @(37, 13)}
+[148] {ASSIGN, "=", @(37, 20)}
+[149] {CHAR_LITERAL, "'N'", @(37, 22)}
+[150] {SEMICOLON, ";", @(37, 25)}
+[151] {LLAVE_CLOSE, "}", @(38, 9)}
+[152] {ELSE, "else", @(38, 11)}
+[153] {LLAVE_OPEN, "{", @(38, 16)}
+[154] {IDENTIFIER, "option", @(39, 13)}
+[155] {ASSIGN, "=", @(39, 20)}
+[156] {IDENTIFIER, "get", @(39, 22)}
+[157] {PARENTHESIS_OPEN, "(", @(39, 25)}
+[158] {IDENTIFIER, "option", @(39, 26)}
+[159] {COMMA, ",", @(39, 32)}
+[160] {INT_LITERAL, "0", @(39, 34)}
+[161] {PARENTHESIS_CLOSE, ")", @(39, 35)}
+[162] {SEMICOLON, ";", @(39, 36)}
+[163] {LLAVE_CLOSE, "}", @(40, 9)}
+[164] {IF, "if", @(41, 9)}
+[165] {PARENTHESIS_OPEN, "(", @(41, 12)}
+[166] {IDENTIFIER, "option", @(41, 13)}
+[167] {NOTEQUAL, "!=", @(41, 20)}
+[168] {CHAR_LITERAL, "'Y'", @(41, 23)}
+[169] {AND, "&&", @(41, 27)}
+[170] {IDENTIFIER, "option", @(41, 30)}
+[171] {NOTEQUAL, "!=", @(41, 37)}
+[172] {CHAR_LITERAL, "'y'", @(41, 40)}
+[173] {PARENTHESIS_CLOSE, ")", @(41, 43)}
+[174] {LLAVE_OPEN, "{", @(41, 45)}
+[175] {BREAK, "break", @(42, 13)}
+[176] {SEMICOLON, ";", @(42, 18)}
+[177] {LLAVE_CLOSE, "}", @(43, 9)}
+[178] {LLAVE_CLOSE, "}", @(44, 5)}
+[179] {LLAVE_CLOSE, "}", @(45, 1)}
+[180] {EOF, "", @(46, 1)}
